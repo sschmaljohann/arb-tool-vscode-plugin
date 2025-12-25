@@ -147,8 +147,17 @@ export function activate(context: vscode.ExtensionContext) {
           'String extracted to all ARB files successfully.'
         );
 
+        let arbStringExtractionPrefix = vscode.workspace
+          .getConfiguration('extractStringsToArb')
+          .get<string>('arbStringExtractionPrefix');
+
+
+        if (!arbStringExtractionPrefix) {
+          arbStringExtractionPrefix = `l10n.`;
+        }
+
         const edit = new vscode.WorkspaceEdit();
-        edit.replace(editor.document.uri, editor.selection, `l10n.${key}`);
+        edit.replace(editor.document.uri, editor.selection, `${arbStringExtractionPrefix}${key}`);
         await vscode.workspace.applyEdit(edit);
 
         const workspacePath =
