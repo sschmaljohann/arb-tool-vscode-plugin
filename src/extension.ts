@@ -153,7 +153,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 
         if (!arbStringExtractionPrefix) {
-          arbStringExtractionPrefix = `l10n.`;
+          arbStringExtractionPrefix = 'l10n.';
         }
 
         const edit = new vscode.WorkspaceEdit();
