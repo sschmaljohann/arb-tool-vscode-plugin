@@ -62,6 +62,11 @@
           "type": "string",
           "default": "",
           "description": "The folder path where ARB files are stored."
+        },
+        "extractStringsToArb.arbStringExtractionPrefix": {
+          "type": "string",
+          "default": "",
+          "description": "The replacement in the editor for when a string is extracted. The default is 'l10n.'."
         }
       }
     }
